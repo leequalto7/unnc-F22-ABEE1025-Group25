@@ -3,10 +3,4 @@ Author: Jialu Li
 
 Date of first creation: 2020-09-30
 
-Group25:
-
-Jialu Li
-20413443
-
-Zihan Yuan
-20412975
+ABEE1025_2022F_computing
