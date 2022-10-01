@@ -1,6 +1,11 @@
 # unnc f22 abee1025 group25 repo
-Author: Jialu Li
+Group name:
+Group25
 
-Date of first creation: 2020-09-30
+Group mumber:
 
-ABEE1025_2022F_computing
+Jialu Li
+20413443
+
+Zihan Yuan
+20412975
