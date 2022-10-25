@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='/home/leequalto7/unnc-F22-ABEE1025-Group25/virt_env'
+VIRTUAL_ENV='/home/ubvm/unnc-F22-ABEE1025-Group25/virt_env'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
