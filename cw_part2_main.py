@@ -1,5 +1,6 @@
 from parametric_simulation import run_one_parameter_parametric
 from post_processor import plot_1D_results
+import matplotlib.pyplot as plt
 
 eplus_run_path = './energyplus9.5/energyplus'
 idf_path = './1ZoneUncontrolled_win_1.idf'
@@ -16,4 +17,5 @@ output_paths = run_one_parameter_parametric(eplus_run_path, idf_path, output_dir
 								parameter_key, parameter_vals)
 print(output_paths, plot_column_name,y_axis_title, plot_title)
 plot_1D_results(output_paths, plot_column_name,y_axis_title, plot_title)
-print("overrrrrrrrrrrrrrrrrr")				
+plt.savefig('./test.png')
+print('overrrrrrrrrrrrrrrrrrr')

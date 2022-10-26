@@ -5,7 +5,6 @@ import pandas as pd
 import datetime as dt
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
-import matplotlib as mpl
 
 def elpus_to_datetime(date_str):
 	if date_str[-8:-6] != '24':
@@ -33,9 +32,8 @@ def plot_1D_results(output_paths, plot_column_name,
         axs.plot(date_list, this_y,
         	     alpha = 0.7,
         	     linestyle = '--',
-        	     linewidth = 2)
-                 #,label = plot_column_name)
-        #print(date_list, this_y)
+        	     linewidth = 2,
+                 label = plot_column_name)
     datetime_ax_loc = mdates.HourLocator()
     datetime_ax_fmt = mdates. DateFormatter('%H:%M')
     axs.xaxis.set_major_locator(datetime_ax_loc)
@@ -51,5 +49,3 @@ def plot_1D_results(output_paths, plot_column_name,
     axs.set_title('Simulation of Indoor Air Tempreature vs. SHGC',
                     fontsize = fontsize)
     axs.legend(fontsize = fontsize)
-    plt.savefig("./test.png")
-    print("end ")
