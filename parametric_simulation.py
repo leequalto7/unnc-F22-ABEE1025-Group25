@@ -6,40 +6,38 @@ import json
 import copy
 from StaticEplusEngine import run_eplus_model,convert_json_idf
 
-def run_one_simulation_helper_origin(eplus_run_path, 
-	idf_path, output_dir, parameter_key, parameter_val):
+#def run_one_simulation_helper_origin(eplus_run_path, 
+#	idf_path, output_dir, parameter_key, parameter_val):#
+#
 
+#	######step1 : convert an IDF file into JSON file ######
+#	convert_json_idf(eplus_run_path, idf_path)
+#	epjson_path = idf_path.split('.idf')[0] + '.epJSON'#
+#
 
-	######step1 : convert an IDF file into JSON file ######
-	convert_json_idf(eplus_run_path, idf_path)
-	epjson_path = idf_path.split('.idf')[0] + '.epJSON'
+#	######step2 : load the JSON file into a JSON dict ######
+#	with open(epjson_path) as epJSON:
+#		epjson_dict = json.load(epJSON)#
 
+#	######step3 : change the JSON dict value ######
+#	inner_dict = epjson_dict
+#	for i in range(len (parameter_key)):
+#		if i < len(parameter_key) - 1:
+#			inner_dict = inner_dict[parameter_key[i]]
+#	inner_dict[parameter_key[-1]] = parameter_val
+#	#
 
-	######step2 : load the JSON file into a JSON dict ######
-	with open(epjson_path) as epJSON:
-		epjson_dict = json.load(epJSON)
-	print(epjson_dict)
+#	######step4 : dump the JSON dict to JSON file ######
+#	with open(epjson_path,"w") as epjson:
+#		json.dump(epjson_dict,epjson)#
+#
 
+#	######step5 : convert JSON file to IDF file ######
+#	convert_json_idf(eplus_run_path,epjson_path)#
+#
 
-	######step3 : change the JSON dict value ######
-	inner_dict = epjson_dict
-	for i in range(len (parameter_key)):
-		if i < len(parameter_key) - 1:
-			inner_dict = inner_dict[parameter_key[i]]
-	inner_dict[parameter_key[-1]] = parameter_val
-	
-
-	######step4 : dump the JSON dict to JSON file ######
-	with open(epjson_path,"w") as epjson:
-		json.dump(epjson_dict,epjson)
-
-
-	######step5 : convert JSON file to IDF file ######
-	convert_json_idf(eplus_run_path,epjson_path)
-
-
-	######step6 : run simulation ######
-	run_eplus_model(eplus_run_path, idf_path, output_dir)
+#	######step6 : run simulation ######
+#	run_eplus_model(eplus_run_path, idf_path, output_dir)#
 
 
 def run_one_simulation_helper(eplus_run_path, 
@@ -53,14 +51,17 @@ def run_one_simulation_helper(eplus_run_path,
 	######step2 : load the JSON file into a JSON dict ######
 	with open(epjson_path) as epJSON:
 		epjson_dict = json.load(epJSON)
-	print(epjson_dict)
-	
+
 	######step3 : change the JSON dict value ######
 	inner_dict = epjson_dict
 	for i in range(len (parameter_key)):
 		if i < len(parameter_key) - 1:
 			inner_dict = inner_dict[parameter_key[i]]
 	inner_dict[parameter_key[-1]] = parameter_val
+	print('============================================')
+	print(inner_dict)
+	print(output_dir)
+	print('============================================')
 
 
 	######step4 : dump the JSON dict to JSON file ######
@@ -69,7 +70,7 @@ def run_one_simulation_helper(eplus_run_path,
 
 
 	######step5 : convert JSON file to IDF file ######
-	convert_json_idf(eplus_run_path,epjson_path)
+	convert_json_idf(eplus_run_path, epjson_path)
 	# make new dir for each para val 
 
 	
