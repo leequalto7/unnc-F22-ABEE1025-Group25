@@ -19,4 +19,4 @@ print(output_paths, plot_column_name, y_axis_title, plot_title)
 plot_1D_results(output_paths, plot_column_name,
 				y_axis_title, plot_title)
 plt.savefig('./test.png')
-print(test over)
+print('test over')
