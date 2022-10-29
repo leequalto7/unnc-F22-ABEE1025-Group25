@@ -16,10 +16,10 @@ def elpus_to_datetime(date_str):
 
 def plot_1D_results(output_paths, plot_column_name, 
 	                y_axis_title, plot_title):
+    print("start drawing")
     fig, axs = plt.subplots(1, 1, figsize=(20,10))
     fontsize = 20
-    for this_key in ('output_paths'):
-        this_path = output_paths[this_key]
+    for this_key, this this_path in output_paths.items():
         this_df = pd.read_scv(this_path)
         this_df['Date/Time'] = '2002 ' + this_df['Date/Time']
         this_df['Date/Time'] = this_df['Date/Time'].apply(elpus_to_datetime)
@@ -31,7 +31,7 @@ def plot_1D_results(output_paths, plot_column_name,
         	     alpha = 0.7,
         	     linestyle = '--',
         	     linewidth = 2,
-                 label = item)
+                 label = plot_column_name)
     datetime_ax_loc = mdates.HourLocator()
     datetime_ax_fmt = mdates. DateFormatter('%H:%M')
     axs.xaxis.set_major_locator(datetime_ax_loc)
@@ -47,3 +47,4 @@ def plot_1D_results(output_paths, plot_column_name,
     axs.set_title('Simulation of Indoor Air Tempreature vs. SHGC',
                     fontsize = fontsize)
     axs.legend(fontsize = fontsize)
+    plt.savefig('./test.png')
