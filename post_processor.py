@@ -19,7 +19,7 @@ def plot_1D_results(output_paths, plot_column_name,
     print("start drawing")
     fig, axs = plt.subplots(1, 1, figsize=(20,10))
     fontsize = 20
-    for this_key, this this_path in output_paths.items():
+    for this_key, this_path in output_paths.items():
         this_df = pd.read_scv(this_path)
         this_df['Date/Time'] = '2002 ' + this_df['Date/Time']
         this_df['Date/Time'] = this_df['Date/Time'].apply(elpus_to_datetime)
