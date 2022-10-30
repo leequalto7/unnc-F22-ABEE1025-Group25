@@ -8,15 +8,14 @@ output_dir = 'param_exp_1'
 parameter_key = ['WindowMaterial:SimpleGlazingSystem',
 				'SimpleWindow:DOUBLE PANE WINDOW',
 				'solar_heat_gain_coefficient']
-parameter_vals = [i for i in np.arange(0.25, 0.77, 0.02)]
+parameter_vals = [i for i in np.arange(0.25, 0.75, 0.02)]
 plot_column_name = 'ZONE ONE:Zone Mean Air Temperature [C](TimeStep) '
 y_axis_title = 'Indoor Air Tempreature (C)'
 plot_title = 'Simulation of Indoor Air Tempreature vs. SHGC'
 
 output_paths = run_one_parameter_parametric(eplus_run_path, idf_path, output_dir,
 								parameter_key, parameter_vals)
-print(output_paths, plot_column_name, y_axis_title, plot_title)
+print(output_paths )
 plot_1D_results(output_paths, plot_column_name,
-				y_axis_title, plot_title)
-plt.savefig('./test.png')
+				y_axis_title, plot_title, parameter_vals)
 print('test over')
