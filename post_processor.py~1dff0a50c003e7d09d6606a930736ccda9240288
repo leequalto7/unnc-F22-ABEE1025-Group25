@@ -29,7 +29,6 @@ def plot_1D_results(output_paths, plot_column_name,
         data_ed_date = this_df.iloc[-1]['Date/Time']
         date_list = this_df['Date/Time']
         this_y = this_df[plot_column_name].values
-        print(this_y)
         axs.plot(date_list, this_y,
         	     alpha = 0.7,
         	     linestyle = '--',
@@ -53,4 +52,3 @@ def plot_1D_results(output_paths, plot_column_name,
     plt.rcParams.update({'font.size':10})
     plt.legend(loc='upper left')
     plt.savefig('./test.png')
-
