@@ -51,8 +51,8 @@ def run_function(eplus_run_path, idf_path, output_dir, parameter_key1, parameter
 			this_res_path = run_one_simulation_helper(eplus_run_path, idf_path, new_output, parameter_key1, parameter_key2, para_val1, para_val2)
 			output_paths[para_val1, para_val2]=this_res_path
 			this_df = pd.read_csv(this_res_path)
-			this_x = this_df['SHGC, U']
-			this_y = this_df['indoor_temperature']
+			this_x = this_df['ZN001:WALL001:WIN001:Surface Inside Face Temperature [C](TimeStep)']
+			this_y = this_df['ZN001:WALL001:Surface Inside Face Temperature [C](TimeStep)']
 			this_y_vals = this_y.values
 			y_val = np.mean(this_y_vals)
 			if y_val > max_y:
